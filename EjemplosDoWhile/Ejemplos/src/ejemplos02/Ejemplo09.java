@@ -23,25 +23,36 @@ public class Ejemplo09 {
         Scanner entrada = new Scanner(System.in);
         entrada.useLocale(Locale.US);
         
-        String cadenaFinal;
+  
+        String nombre;
+        String cadena = "Listado de notas\n";
         int nota;
         int salida;
-        String nombre; // *
         double promedio;
         boolean bandera = true;
         int suma = 0;
         int contador_calificaciones = 0;
         
-        cadenaFinal = "Listado de Notas\n";
+        
         
         do {
             
+            System.out.println("Ingrese el nombre del estudiante");
+            nombre = entrada.nextLine();
+            
+            System.out.println("Ingrese la nota de valor entero");
+            nota = entrada.nextInt();
             
             // agrego valor al acumulador
             suma = suma + nota;
+            
             // agrego una unidad al contador para luego sacar el promedio
             contador_calificaciones = contador_calificaciones + 1;
             
+            cadena = String.format("%sCalificacion %d del estudiante %s\n", 
+                    cadena, 
+                    nota, 
+                    nombre.toLowerCase());
             
             System.out.println("Ingrese (-111) si desea salir del ciclo; "
                     + "cualquier otro número para continuar");
@@ -59,9 +70,7 @@ public class Ejemplo09 {
         
         // promedio = suma / contador_calificaciones;
         promedio = (double)suma / contador_calificaciones;
-        cadenaFinal = String.format("%s\nPromedio de calificaciones: %.2f",
-                cadenaFinal,
-                promedio);
-        System.out.printf("%s\n", cadenaFinal);
+        
+        System.out.printf("%s\nPromedio de calificaciones: %.2f\n", cadena, promedio);
     }
 }
