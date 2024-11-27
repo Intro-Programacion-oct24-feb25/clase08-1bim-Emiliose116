@@ -42,6 +42,7 @@ public class Ejemplo06 {
         do {
             operacion = tabla * contador;
             cadena = String.format("%s%d x %d = %d\n", cadena, tabla, contador, operacion);
+            contador = contador + 1;
         } while (contador <= limite);
         System.out.printf("%s", cadena);
 
